@@ -1,22 +1,33 @@
 import ClientButtons from "@/components/client-buttons";
 import GetStartedButton from "@/components/get-started-button";
 import { Separator } from "@/components/ui/separator";
-import { UserProfile } from "@clerk/nextjs";
+import Image from "next/image";
 
 const WelcomePage = () => {
-  const ImageCard: React.FC<{
+  interface ImageCardProps {
     src: string;
     alt: string;
     title: string;
     heading: string;
     description: string;
-  }> = ({ src, alt, title, heading, description }) => {
+  }
+
+  const ImageCard: React.FC<ImageCardProps> = ({
+    src,
+    alt,
+    title,
+    heading,
+    description,
+  }) => {
     return (
       <div className="relative flex flex-col items-center group">
-        <img
+        <Image
           className="rounded-lg w-full h-auto max-w-[30rem] object-cover"
           src={src}
           alt={alt}
+          layout="responsive"
+          width={500}
+          height={300}
         />
         <div className="mt-[23%] md:mt-[30%] p-4 absolute inset-0 flex flex-col bg-green-500 bg-opacity-50 rounded-b-lg transition-all duration-300 ease-in-out group-hover:mt-0 group-hover:rounded-t-lg">
           <div className="text-left">
@@ -45,7 +56,13 @@ const WelcomePage = () => {
       <div className="h-full w-full flex flex-col items-center">
         <div className="w-full max-w-[73rem] flex justify-between items-center">
           <div>
-            <img src="/logo.svg" alt="logo" className="h-16 w-auto" />
+            <Image
+              src="/logo.svg"
+              alt="logo"
+              className="h-16 w-auto"
+              width={64}
+              height={64}
+            />
           </div>
           <ClientButtons />
         </div>
@@ -134,9 +151,9 @@ const WelcomePage = () => {
                     description="Enjoy a seamless browsing experience that adapts to various platforms, making it easy for everyone to use, regardless of their needs or preferences."
                   />
                   <ImageCard
-                    src="/intitutive-design-image.png"
-                    alt="Intitutive-design"
-                    title="Intitutive Design"
+                    src="/intuitive-design-image.png"
+                    alt="Intuitive Design"
+                    title="Intuitive Design"
                     heading="Navigate your bookmarks with ease through a user-friendly interface"
                     description="Experience an elegantly designed platform that prioritizes simplicity and efficiency, allowing you to find and organize your content effortlessly."
                   />
@@ -205,10 +222,12 @@ const WelcomePage = () => {
                 <div className="max-w-[73rem] mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
                   {/* Column 1: About & Logo */}
                   <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-3">
-                    <img
+                    <Image
                       src="/logo.svg"
                       alt="Logo"
                       className="h-12 w-auto bg-white p-1 rounded-md shadow-md"
+                      width={48}
+                      height={48}
                     />
                     <p className="text-sm text-gray-400 mt-2">
                       BrowzFast simplifies your browsing, making bookmark
