@@ -496,7 +496,7 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
               <Tabs defaultValue="desktop" className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mt-3">
                   <TabsTrigger value="desktop">Chrome Desktop</TabsTrigger>
-                  <TabsTrigger value="mobile"> Chrome Mobile</TabsTrigger>
+                  <TabsTrigger value="mobile">Chrome Mobile</TabsTrigger>
                 </TabsList>
                 <TabsContent value="desktop">
                   <div className="w-full flex flex-col space-y-4 px-2 py-2 overflow-y-auto h-44 md:h-52">
@@ -542,8 +542,8 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       </div>
 
                       <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Step 3: Click "Enable," then paste the BrowzFast Home
-                        URL in the provided field:
+                        Step 3: Click &quot;Enable,&quot; then paste the
+                        BrowzFast Home URL in the provided field:
                       </p>
 
                       <CopyHomePageButton />
@@ -569,13 +569,15 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       </p>
                       <ul className="text-sm list-decimal list-inside space-y-1 text-gray-600 dark:text-gray-300">
                         <li>Open Chrome settings.</li>
-                        <li>Select "On startup" option.</li>
+                        <li>Select &quot;On startup&quot; option.</li>
                         <li>
-                          Click on "Open a specific page or set of pages".
+                          Click on &quot;Open a specific page or set of
+                          pages&quot;.
                         </li>
-                        <li>Click "Add a new page".</li>
+                        <li>Click &quot;Add a new page&quot;.</li>
                         <li>
-                          Paste the BrowzFast homepage link and click "Add".
+                          Paste the BrowzFast homepage link and click
+                          &quot;Add&quot;.
                         </li>
                       </ul>
                       <CopyHomePageButton />
@@ -593,10 +595,14 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       <ol className="text-sm list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-300">
                         <li>Open Chrome settings on your mobile.</li>
                         <li>
-                          Under the "Advanced" section, select "Homepage".
+                          Under the &quot;Advanced&quot; section, select
+                          &quot;Homepage&quot;.
                         </li>
                         <li>Turn on the homepage option.</li>
-                        <li>Choose the second option, "Enter custom URL".</li>
+                        <li>
+                          Choose the second option, &quot;Enter custom
+                          URL&quot;.
+                        </li>
                         <li className="space-y-3">
                           <span>
                             Paste the BrowzFast homepage URL here and confirm.
@@ -668,8 +674,8 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       </div>
 
                       <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Step 3: Click "Enable," then paste the BrowzFast Home
-                        URL in the provided field:
+                        Step 3: Click &quot;Enable,&quot; then paste the
+                        BrowzFast Home URL in the provided field:
                       </p>
 
                       <CopyHomePageButton />
@@ -695,176 +701,18 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       </p>
                       <ul className="text-sm list-decimal list-inside space-y-1 text-gray-600 dark:text-gray-300">
                         <li>Open Brave settings.</li>
-                        <li>Select "Get started" option.</li>
+                        <li>Select &quot;Get started&quot; option.</li>
                         <li>
-                          Under On startup section, click "Open a specific page
-                          or set of pages".
+                          Under On startup section, click &quot;Open a specific
+                          page or set of pages&quot;.
                         </li>
-                        <li>Click "Add a new page".</li>
+                        <li>Click &quot;Add a new page&quot;.</li>
                         <li>
-                          Paste the BrowzFast homepage link and click "Add".
+                          Paste the BrowzFast homepage link and click
+                          &quot;Add&quot;.
                         </li>
                       </ul>
                       <CopyHomePageButton />
-                    </div>
-                  </div>
-                </TabsContent>
-
-                <TabsContent value="mobile">
-                  <div className="w-full flex flex-col space-y-4 px-2 py-2 overflow-y-auto h-44 md:h-52">
-                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                      Instructions for Setting BrowzFast as Your Default
-                      Homepage on Mobile
-                    </p>
-                    <div className="flex flex-col space-y-2">
-                      <ol className="text-sm list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-300">
-                        <li>Open Brave settings on your mobile.</li>
-                        <li>Under the "Genral" section, select "Homepage".</li>
-                        <li>Turn on the homepage option.</li>
-                        <li>Choose the second option, "Enter custom URL".</li>
-                        <li className="space-y-3">
-                          <span>
-                            Paste the BrowzFast homepage URL here and confirm.
-                          </span>
-                          <CopyHomePageButton />
-                        </li>
-                      </ol>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        For quicker access, visit the BrowzFast homepage and add
-                        it to your home screen.
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Note: This will only open when launching brave, not on
-                        new tabs.
-                      </p>
-                    </div>
-                  </div>
-                </TabsContent>
-              </Tabs>
-            </TabsContent>
-
-            <TabsContent value="edge">
-              <Tabs defaultValue="desktop" className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mt-3">
-                  <TabsTrigger value="desktop">Edge Desktop</TabsTrigger>
-                  <TabsTrigger value="mobile">Edge Mobile</TabsTrigger>
-                </TabsList>
-                <TabsContent value="desktop">
-                  <div className="w-full flex flex-col space-y-4 px-2 py-2 overflow-y-auto h-44 md:h-52">
-                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                      Instructions for Setting BrowzFast as Default on Edge
-                      Desktop
-                    </p>
-
-                    <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
-                      There are two ways to set it as default:
-                    </p>
-
-                    <div className="flex flex-col space-y-2">
-                      <p className="font-semibold text-gray-800 dark:text-gray-100">
-                        1. With Extension (Recommended)
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Step 1: Go to the Chrome Web Store and download and
-                        Enable the extension:
-                      </p>
-
-                      <ChromeStoreButton />
-
-                      <div className="flex justify-center">
-                        <img
-                          src="/how-to-use-images/chrome-d-step-1.png"
-                          alt="chrome-d-step-1"
-                          className="w-full max-w-sm rounded-md shadow-md mt-2"
-                        />
-                      </div>
-
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Step 2: Open the options page from the extension
-                        settings or by opening a new tab.
-                      </p>
-
-                      <div className="flex justify-center">
-                        <img
-                          src="/how-to-use-images/chrome-d-step-2.png"
-                          alt="chrome-d-step-2"
-                          className="w-full max-w-sm rounded-md shadow-md mt-2"
-                        />
-                      </div>
-
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Step 3: Click "Enable," then paste the BrowzFast Home
-                        URL in the provided field:
-                      </p>
-
-                      <CopyHomePageButton />
-
-                      <div className="flex justify-center">
-                        <img
-                          src="/how-to-use-images/chrome-d-step-3.png"
-                          alt="chrome-d-step-3"
-                          className="w-full max-w-sm rounded-md shadow-md mt-2"
-                        />
-                      </div>
-                    </div>
-
-                    <div className="flex flex-col space-y-2">
-                      <p className="font-semibold text-lg text-gray-800 dark:text-gray-100">
-                        2. Without Extension
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Set BrowzFast as your default homepage without an
-                        extension. This will load only once at launch (not on
-                        new tabs). For an always-on experience, consider using
-                        the extension.
-                      </p>
-                      <ul className="text-sm list-decimal list-inside space-y-1 text-gray-600 dark:text-gray-300">
-                        <li>Open Edge settings.</li>
-                        <li>Select "Start, home, and new tab page" option.</li>
-                        <li>
-                          Under "When Edge starts" option click on "Open these
-                          pages".
-                        </li>
-                        <li>Click "Add a new page".</li>
-                        <li>
-                          Paste the BrowzFast homepage link and click "Add".
-                        </li>
-                      </ul>
-                      <CopyHomePageButton />
-                    </div>
-                  </div>
-                </TabsContent>
-
-                <TabsContent value="mobile">
-                  <div className="w-full flex flex-col space-y-4 px-2 py-2 overflow-y-auto h-44 md:h-52">
-                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
-                      Instructions for Setting BrowzFast as Your Default
-                      Homepage on Mobile
-                    </p>
-                    <div className="flex flex-col space-y-2">
-                      <ol className="text-sm list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-300">
-                        <li>Open Edge settings on your mobile.</li>
-                        <li>Click the "General" option.</li>
-                        <li>
-                          Under Home page section, Choose the second option, "A
-                          specific page".
-                        </li>
-                        <li></li>
-                        <li className="space-y-3">
-                          <span>
-                            Paste the BrowzFast homepage URL here and save.
-                          </span>
-                          <CopyHomePageButton />
-                        </li>
-                      </ol>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        For quicker access, visit the BrowzFast homepage and add
-                        it to your home screen.
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-300">
-                        Note: This will only open when launching edge, not on
-                        new tabs.
-                      </p>
                     </div>
                   </div>
                 </TabsContent>
@@ -907,15 +755,15 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     Steps for Uploading Bookmark File
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    1. Create a file by exporting the bookmark file. If you're
-                    unsure about the process, check the "Import/Export" section
-                    for guidance.
+                    1. Create a file by exporting the bookmark file. If
+                    you&apos;re unsure about the process, check the
+                    &quot;Import/Export&quot; section for guidance.
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    2. Go to "Manage Bookmarks" in the menu.
+                    2. Go to &quot;Manage Bookmarks&quot; in the menu.
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    3. Select "Upload" and choose your file.
+                    3. Select &quot;Upload&quot; and choose your file.
                   </p>
                   <div className="flex justify-center">
                     <img
@@ -933,10 +781,10 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     Steps for Downloading Bookmark File
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    1. Go to "Manage Bookmarks" in the menu.
+                    1. Go to &quot;Manage Bookmarks&quot; in the menu.
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    2. Select "Download" to save your bookmarks.
+                    2. Select &quot;Download&quot; to save your bookmarks.
                   </p>
                   <div className="flex justify-center">
                     <img
@@ -954,10 +802,10 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     Steps for Deleting Bookmark File
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    1. Go to "Manage Bookmarks" in the menu.
+                    1. Go to &quot;Manage Bookmarks&quot; in the menu.
                   </p>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    2. Select "Delete" to remove your bookmarks.
+                    2. Select &quot;Delete&quot; to remove your bookmarks.
                   </p>
                   <div className="flex justify-center">
                     <img
@@ -985,7 +833,7 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     />
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    2. Click the menu icon, then "Export".
+                    2. Click the menu icon, then &quot;Export&quot;.
                   </p>
                   <div className="flex justify-center">
                     <img
@@ -1009,12 +857,12 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     />
                   </div>
                   <p className="text-sm text-gray-600 dark:text-gray-300">
-                    2. Click the menu icon, then "Import".
+                    2. Click the menu icon, then &quot;Import&quot;.
                   </p>
                   <div className="flex justify-center">
                     <img
                       src="/how-to-use-images/bookmark-steps-5.png"
-                      alt="Export steps"
+                      alt="Import steps"
                       className="w-full max-w-sm rounded-md shadow-md"
                     />
                   </div>

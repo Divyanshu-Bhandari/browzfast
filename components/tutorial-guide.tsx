@@ -66,8 +66,8 @@ const TutorialGuide: React.FC<TutorialGuideProps> = ({
             📂 Navigation Menu
           </h3>
           <p className="text-gray-700">
-            Click this button to toggle the navigation sidebar, where you'll
-            find important sections of the app.
+            Click this button to toggle the navigation sidebar, where
+            you&apos;ll find important sections of the app.
           </p>
         </div>
       ),
@@ -146,7 +146,7 @@ const TutorialGuide: React.FC<TutorialGuideProps> = ({
           </h3>
           <p className="text-gray-700">
             Add your favorite websites here for quick access. Just click the
-            "Add" button to get started!
+            &quot;Add&quot; button to get started!
           </p>
         </div>
       ),

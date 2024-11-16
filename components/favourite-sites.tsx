@@ -72,7 +72,7 @@ const FavouriteSites = () => {
     };
 
     fetchFavourites();
-  }, []);
+  });
 
   const dataClean = (siteName: string, siteUrl: string) => {
     const cleanedSiteName = siteName.trim() || siteUrl;
@@ -91,7 +91,6 @@ const FavouriteSites = () => {
     if (siteUrl && !loading) {
       const { cleanedSiteName, cleanedSiteUrl } = dataClean(siteName, siteUrl);
 
-      // Client-side check for duplicate URL
       const isDuplicate = favourites.some((fav) => fav.url === cleanedSiteUrl);
 
       if (isDuplicate) {
