@@ -72,7 +72,7 @@ const FavouriteSites = () => {
     };
 
     fetchFavourites();
-  });
+  }, []);
 
   const dataClean = (siteName: string, siteUrl: string) => {
     const cleanedSiteName = siteName.trim() || siteUrl;
