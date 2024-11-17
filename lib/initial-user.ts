@@ -4,7 +4,6 @@ import { db } from "@/lib/db";
 
 export const initialUser = async () => {
     const user = await currentUser();
-
     if(!user) {
         return auth().redirectToSignIn;
     }

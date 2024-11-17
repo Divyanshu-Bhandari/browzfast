@@ -1,10 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { currentUser } from '@/lib/current-user';
+import { initialUser } from '@/lib/initial-user';
 
 export async function GET(req: NextRequest) {
   try {
+    const initializedUser = await initialUser();
     const user = await currentUser();
+    
 
     if (!user) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
