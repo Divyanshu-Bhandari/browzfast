@@ -2,8 +2,10 @@ import { MobileToggle } from "@/components/mobile-toggle";
 import Clock from "@/components/clock";
 import SearchBar from "@/components/searchbar";
 import FavouriteSites from "@/components/favourite-sites";
+import { initialUser } from "@/lib/initial-user";
 
-const HomePage = () => {
+const HomePage = async () => {
+  const initializeUser = await initialUser();
   return (
     <>
       <MobileToggle />
