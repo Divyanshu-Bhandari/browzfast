@@ -19,7 +19,9 @@ export const UIProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [showClock, setShowClock] = useState(true);
-  const [webSiteUrl, setWebSiteUrl] = useState("http://localhost:3000");
+  const [webSiteUrl, setWebSiteUrl] = useState(
+    "https://browzfast.netlify.app/"
+  );
   const [clockFormat, setClockFormat] = useState<"12" | "24">("12");
   const [favourites, setFavourites] = useState<
     { title: string; url: string; order: number }[]
