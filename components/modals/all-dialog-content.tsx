@@ -716,6 +716,175 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     </div>
                   </div>
                 </TabsContent>
+
+                <TabsContent value="mobile">
+                  <div className="w-full flex flex-col space-y-4 px-2 py-2 overflow-y-auto h-44 md:h-52">
+                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                      Instructions for Setting BrowzFast as Your Default
+                      Homepage on Mobile
+                    </p>
+                    <div className="flex flex-col space-y-2">
+                      <ol className="text-sm list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                        <li>Open Brave settings on your mobile.</li>
+                        <li>
+                          Under the &quot;General&quot; section, select
+                          &quot;Homepage&quot;.
+                        </li>
+                        <li>Turn on the homepage option.</li>
+                        <li>
+                          Choose the second option, &quot;Enter custom
+                          URL&quot;.
+                        </li>
+                        <li className="space-y-3">
+                          <span>
+                            Paste the BrowzFast homepage URL here and confirm.
+                          </span>
+                          <CopyHomePageButton />
+                        </li>
+                      </ol>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        For quicker access, visit the BrowzFast homepage and add
+                        it to your home screen.
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Note: This will only open when launching Brave, not on
+                        new tabs.
+                      </p>
+                    </div>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </TabsContent>
+
+            <TabsContent value="edge">
+              <Tabs defaultValue="desktop" className="w-full">
+                <TabsList className="grid w-full grid-cols-2 mt-3">
+                  <TabsTrigger value="desktop">Edge Desktop</TabsTrigger>
+                  <TabsTrigger value="mobile">Edge Mobile</TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="desktop">
+                  <div className="w-full flex flex-col space-y-4 px-2 py-2 overflow-y-auto h-44 md:h-52">
+                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                      Instructions for Setting BrowzFast as Default on Edge
+                      Desktop
+                    </p>
+                    <p className="text-sm font-medium text-gray-600 dark:text-gray-300">
+                      There are two ways to set it as default:
+                    </p>
+
+                    <div className="flex flex-col space-y-2">
+                      <p className="font-semibold text-gray-800 dark:text-gray-100">
+                        1. With Extension (Recommended)
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Step 1: Go to the Chrome Web Store and download and
+                        Enable the extension:
+                      </p>
+
+                      <ChromeStoreButton />
+
+                      <div className="flex justify-center">
+                        <img
+                          src="/how-to-use-images/chrome-d-step-1.png"
+                          alt="chrome-d-step-1"
+                          className="w-full max-w-sm rounded-md shadow-md mt-2"
+                        />
+                      </div>
+
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Step 2: Open the options page from the extension
+                        settings or by opening a new tab.
+                      </p>
+
+                      <div className="flex justify-center">
+                        <img
+                          src="/how-to-use-images/chrome-d-step-2.png"
+                          alt="chrome-d-step-2"
+                          className="w-full max-w-sm rounded-md shadow-md mt-2"
+                        />
+                      </div>
+
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Step 3: Click &quot;Enable,&quot; then paste the
+                        BrowzFast Home URL in the provided field:
+                      </p>
+
+                      <CopyHomePageButton />
+
+                      <div className="flex justify-center">
+                        <img
+                          src="/how-to-use-images/chrome-d-step-3.png"
+                          alt="chrome-d-step-3"
+                          className="w-full max-w-sm rounded-md shadow-md mt-2"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex flex-col space-y-2">
+                      <p className="font-semibold text-lg text-gray-800 dark:text-gray-100">
+                        2. Without Extension
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Set BrowzFast as your default homepage without an
+                        extension. This will load only once at launch (not on
+                        new tabs). For an always-on experience, consider using
+                        the extension.
+                      </p>
+                      <ul className="text-sm list-decimal list-inside space-y-1 text-gray-600 dark:text-gray-300">
+                        <li>Open Edge settings.</li>
+                        <li>
+                          Select &quot;Start, home, and new tab page&quot;
+                          option.
+                        </li>
+                        <li>
+                          Under &quot;When Edge starts&quot; option click on
+                          &quot;Open these pages&quot;.
+                        </li>
+                        <li>Click &quot;Add a new page&quot;.</li>
+                        <li>
+                          Paste the BrowzFast homepage link and click
+                          &quot;Add&quot;.
+                        </li>
+                      </ul>
+                      <CopyHomePageButton />
+                    </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="mobile">
+                  <div className="w-full flex flex-col space-y-4 px-2 py-2 overflow-y-auto h-44 md:h-52">
+                    <p className="text-lg font-semibold text-gray-800 dark:text-gray-100">
+                      Instructions for Setting BrowzFast as Your Default
+                      Homepage on Mobile
+                    </p>
+                    <div className="flex flex-col space-y-2">
+                      <ol className="text-sm list-decimal list-inside space-y-2 text-gray-600 dark:text-gray-300">
+                        <li>Open Edge settings on your mobile.</li>
+                        <li>Click the &quot;General&quot; option.</li>
+                        <li>
+                          Under Home page section, Choose the second option,
+                          &quot;A specific page&quot;.
+                        </li>
+                        <li></li>
+                        <li className="space-y-3">
+                          <span>
+                            Paste the BrowzFast homepage URL here and save.
+                          </span>
+                          <CopyHomePageButton />
+                        </li>
+                      </ol>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        For quicker access, visit the BrowzFast homepage and add
+                        it to your home screen.
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-300">
+                        Note: This will only open when launching Edge, not on
+                        new tabs.
+                      </p>
+                    </div>
+                  </div>
+                </TabsContent>
               </Tabs>
             </TabsContent>
           </Tabs>
