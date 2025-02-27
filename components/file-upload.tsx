@@ -1,8 +1,8 @@
 "use client";
-import { useState } from "react";
 
 import { Upload, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import Image from "next/image";
 
 interface FileUploadProps {
   backgroundImage: string | null;
@@ -74,7 +74,7 @@ export const FileUpload = ({
       )}
       {backgroundImage && (
         <div className="relative w-full h-full">
-          <img
+          <Image
             src={backgroundImage}
             alt="Uploaded"
             className="rounded-md w-full h-full object-cover"

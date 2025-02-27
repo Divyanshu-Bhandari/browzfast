@@ -33,6 +33,7 @@ import {
 
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
+import Image from "next/image";
 
 interface AllDialogContentProps {
   selectedOption: string;
@@ -76,7 +77,7 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
     if (image) {
       setShowImages(true);
     }
-  }, []);
+  }, [setShowClock, setClockFormat, setShowImages]);
 
   const Spinner = () => (
     <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-white"></div>
@@ -356,10 +357,12 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                   className="cursor-pointer"
                   onClick={() => handleBackgroundImage(url)}
                 >
-                  <img
+                  <Image
                     src={url}
                     alt={`Fixed ${index + 1}`}
-                    className="w-[326px] h-[230px] md:w-full md:h-[140px] rounded-md shadow-sm object-cover"
+                    width={326}
+                    height={230}
+                    className="rounded-md shadow-sm object-cover"
                   />
                 </div>
               ))}
@@ -521,11 +524,14 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       <ChromeStoreButton />
 
                       <div className="flex justify-center">
-                        <img
-                          src="/how-to-use-images/chrome-d-step-1.png"
-                          alt="chrome-d-step-1"
-                          className="w-full max-w-sm rounded-md shadow-md mt-2"
-                        />
+                      <Image
+                        src="/how-to-use-images/chrome-d-step-1.png"
+                        alt="chrome-d-step-1"
+                        width={400}
+                        height={300}
+                        className="w-full max-w-sm rounded-md shadow-md mt-2"
+                      />
+
                       </div>
 
                       <p className="text-sm text-gray-600 dark:text-gray-300">
@@ -534,9 +540,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       </p>
 
                       <div className="flex justify-center">
-                        <img
+                        <Image
                           src="/how-to-use-images/chrome-d-step-2.png"
                           alt="chrome-d-step-2"
+                          width={400}
+                          height={300}
                           className="w-full max-w-sm rounded-md shadow-md mt-2"
                         />
                       </div>
@@ -549,9 +557,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       <CopyHomePageButton />
 
                       <div className="flex justify-center">
-                        <img
+                        <Image
                           src="/how-to-use-images/chrome-d-step-3.png"
                           alt="chrome-d-step-3"
+                          width={400}
+                          height={300}
                           className="w-full max-w-sm rounded-md shadow-md mt-2"
                         />
                       </div>
@@ -653,9 +663,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       <ChromeStoreButton />
 
                       <div className="flex justify-center">
-                        <img
+                        <Image
                           src="/how-to-use-images/chrome-d-step-1.png"
                           alt="chrome-d-step-1"
+                          width={400}
+                          height={300}
                           className="w-full max-w-sm rounded-md shadow-md mt-2"
                         />
                       </div>
@@ -666,9 +678,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       </p>
 
                       <div className="flex justify-center">
-                        <img
+                        <Image
                           src="/how-to-use-images/chrome-d-step-2.png"
                           alt="chrome-d-step-2"
+                          width={400}
+                          height={300}
                           className="w-full max-w-sm rounded-md shadow-md mt-2"
                         />
                       </div>
@@ -681,9 +695,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       <CopyHomePageButton />
 
                       <div className="flex justify-center">
-                        <img
+                        <Image
                           src="/how-to-use-images/chrome-d-step-3.png"
                           alt="chrome-d-step-3"
+                          width={400}
+                          height={300}
                           className="w-full max-w-sm rounded-md shadow-md mt-2"
                         />
                       </div>
@@ -785,9 +801,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       <ChromeStoreButton />
 
                       <div className="flex justify-center">
-                        <img
+                        <Image
                           src="/how-to-use-images/chrome-d-step-1.png"
                           alt="chrome-d-step-1"
+                          width={400}
+                          height={300}
                           className="w-full max-w-sm rounded-md shadow-md mt-2"
                         />
                       </div>
@@ -798,9 +816,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       </p>
 
                       <div className="flex justify-center">
-                        <img
+                        <Image
                           src="/how-to-use-images/chrome-d-step-2.png"
                           alt="chrome-d-step-2"
+                          width={400}
+                          height={300}
                           className="w-full max-w-sm rounded-md shadow-md mt-2"
                         />
                       </div>
@@ -813,9 +833,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       <CopyHomePageButton />
 
                       <div className="flex justify-center">
-                        <img
+                        <Image
                           src="/how-to-use-images/chrome-d-step-3.png"
                           alt="chrome-d-step-3"
+                          width={400}
+                          height={300}
                           className="w-full max-w-sm rounded-md shadow-md mt-2"
                         />
                       </div>
@@ -935,9 +957,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     3. Select &quot;Upload&quot; and choose your file.
                   </p>
                   <div className="flex justify-center">
-                    <img
+                    <Image
                       src="/how-to-use-images/bookmark-steps-1.png"
                       alt="Upload steps"
+                      width={400}
+                      height={300}
                       className="w-full max-w-sm rounded-md shadow-md"
                     />
                   </div>
@@ -956,9 +980,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     2. Select &quot;Download&quot; to save your bookmarks.
                   </p>
                   <div className="flex justify-center">
-                    <img
+                    <Image
                       src="/how-to-use-images/bookmark-steps-2.png"
                       alt="Download steps"
+                      width={400}
+                      height={300}
                       className="w-full max-w-sm rounded-md shadow-md"
                     />
                   </div>
@@ -977,9 +1003,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     2. Select &quot;Delete&quot; to remove your bookmarks.
                   </p>
                   <div className="flex justify-center">
-                    <img
+                    <Image
                       src="/how-to-use-images/bookmark-steps-3.png"
                       alt="Delete steps"
+                      width={400}
+                      height={300}
                       className="w-full max-w-sm rounded-md shadow-md"
                     />
                   </div>
@@ -995,9 +1023,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     1. Open the bookmark manager.
                   </p>
                   <div className="flex justify-center">
-                    <img
+                    <Image
                       src="/how-to-use-images/bookmark-steps-4.png"
                       alt="Export steps"
+                      width={400}
+                      height={300}
                       className="w-full max-w-sm rounded-md shadow-md"
                     />
                   </div>
@@ -1005,9 +1035,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     2. Click the menu icon, then &quot;Export&quot;.
                   </p>
                   <div className="flex justify-center">
-                    <img
+                    <Image
                       src="/how-to-use-images/bookmark-steps-5.png"
                       alt="Export steps"
+                      width={400}
+                      height={300}
                       className="w-full max-w-sm rounded-md shadow-md"
                     />
                   </div>
@@ -1019,9 +1051,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     1. Open the bookmark manager.
                   </p>
                   <div className="flex justify-center">
-                    <img
+                    <Image
                       src="/how-to-use-images/bookmark-steps-4.png"
                       alt="Import steps"
+                      width={400}
+                      height={300}
                       className="w-full max-w-sm rounded-md shadow-md"
                     />
                   </div>
@@ -1029,9 +1063,11 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                     2. Click the menu icon, then &quot;Import&quot;.
                   </p>
                   <div className="flex justify-center">
-                    <img
+                    <Image
                       src="/how-to-use-images/bookmark-steps-5.png"
                       alt="Import steps"
+                      width={400}
+                      height={300}
                       className="w-full max-w-sm rounded-md shadow-md"
                     />
                   </div>

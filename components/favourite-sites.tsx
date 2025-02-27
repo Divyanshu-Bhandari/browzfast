@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useUI } from "@/context/UIContext";
+import Image from "next/image";
 
 const FavouriteSites = () => {
   const { favourites, setFavourites } = useUI();
@@ -72,7 +73,7 @@ const FavouriteSites = () => {
     };
 
     fetchFavourites();
-  }, []);
+  }, [setFavourites, toast]);
 
   const dataClean = (siteName: string, siteUrl: string) => {
     const cleanedSiteName = siteName.trim() || siteUrl;
@@ -190,7 +191,7 @@ const FavouriteSites = () => {
 
   const getFaviconUrl = (url: string) => {
     const domain = encodeURIComponent(url);
-    return `https://www.google.com/s2/favicons?domain=${domain}&sz=256`;
+    return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
   };
 
   const totalItems = favourites.length;
@@ -221,11 +222,14 @@ const FavouriteSites = () => {
               className="w-full h-full flex flex-col items-center justify-center"
             >
               <div className="h-12 w-12 flex items-center justify-center rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-sm">
-                <img
-                  src={getFaviconUrl(fav.url)}
-                  alt={`${fav.title.charAt(0)}`}
-                  className="w-7 h-7"
-                />
+              <Image
+                src={getFaviconUrl(fav.url)}
+                alt={`${fav.title.charAt(0)}`}
+                width={28}
+                height={28}
+                className="w-7 h-7"
+              />
+
               </div>
               <p className="mt-4 text-xs font-semibold text-black dark:text-white overflow-hidden whitespace-nowrap text-ellipsis w-full text-center">
                 {fav.title}

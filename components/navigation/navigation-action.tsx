@@ -7,12 +7,13 @@ import {
   Clock,
   CloudUpload,
   Download,
-  Image,
+  Image as LucidImage,
   LucideBookmark,
   Settings,
   Shuffle,
   Star,
 } from "lucide-react";
+import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
 import { AllDialogContent } from "@/components/modals/all-dialog-content";
 import { NavButton } from "./navigation-button";
@@ -57,7 +58,14 @@ export const NavigationAction = () => {
   return (
     <div className="navigation-menu w-full">
       <button className="w-full mt-10 md:mb-1 flex items-center justify-start p-4 md:py-2.5 md:rounded-xl transition hover:bg-gray-200 dark:hover:bg-[#2d2b2b]">
-        <img src="/favicon.ico" alt="Logo" className="mr-3 h-6 rounded-full" />
+      <Image
+        src="/favicon.ico"
+        alt="Logo"
+        width={24}
+        height={24}
+        className="mr-3 h-6 rounded-full"
+      />
+
         <span className="text-base font-semibold md:text-sm">BrowzFast</span>
       </button>
 
@@ -154,7 +162,7 @@ export const NavigationAction = () => {
                   onClick={() =>
                     setSelectedOptionCustomizeHomepage("background")
                   }
-                  icon={<Image className="mr-1" />}
+                  icon={<LucidImage className="mr-1"/>}
                   label="Background Image"
                   ariaLabel="Customize Background Image"
                 />

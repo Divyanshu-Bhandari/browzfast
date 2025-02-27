@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { ArrowUpLeft, History, Search, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 const SearchBar = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -98,11 +99,14 @@ const SearchBar = () => {
         }}
         className="relative"
       >
-        <img
+        <Image
           src="/google-icon.svg"
           alt="Google"
+          width={20}
+          height={20}
           className="absolute left-5 top-1/2 transform -translate-y-1/2 w-5 h-5 z-10"
         />
+
         <input
           type="text"
           name="q"
