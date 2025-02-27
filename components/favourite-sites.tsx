@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 
 import { Plus } from "lucide-react";
@@ -30,6 +30,7 @@ const FavouriteSites = () => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
+  // Debounced resize listener to update itemsPerPage
   useEffect(() => {
     const updateItemsPerPage = () => {
       let newItemsPerPage = itemsPerPage;
@@ -40,21 +41,28 @@ const FavouriteSites = () => {
       } else {
         newItemsPerPage = 9;
       }
-
       if (newItemsPerPage !== itemsPerPage) {
         setItemsPerPage(newItemsPerPage);
         setCurrentPage(0);
       }
     };
 
-    updateItemsPerPage();
-    window.addEventListener("resize", updateItemsPerPage);
+    let timeoutId: ReturnType<typeof setTimeout>;
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(updateItemsPerPage, 200);
+    };
+
+    window.addEventListener("resize", handleResize);
+    updateItemsPerPage(); // initial call
 
     return () => {
-      window.removeEventListener("resize", updateItemsPerPage);
+      window.removeEventListener("resize", handleResize);
+      clearTimeout(timeoutId);
     };
   }, [itemsPerPage, favourites.length]);
 
+  // Fetch favourites on mount
   useEffect(() => {
     const fetchFavourites = async () => {
       try {
@@ -84,16 +92,13 @@ const FavouriteSites = () => {
     ) {
       cleanedSiteUrl = `https://${cleanedSiteUrl}/`;
     }
-
     return { cleanedSiteName, cleanedSiteUrl };
   };
 
   const addFavourite = async () => {
     if (siteUrl && !loading) {
       const { cleanedSiteName, cleanedSiteUrl } = dataClean(siteName, siteUrl);
-
       const isDuplicate = favourites.some((fav) => fav.url === cleanedSiteUrl);
-
       if (isDuplicate) {
         toast({
           title: "Duplicate Favorite",
@@ -104,7 +109,6 @@ const FavouriteSites = () => {
       }
 
       setLoading(true);
-
       try {
         const { data } = await axios.post("/api/favourites", {
           title: cleanedSiteName,
@@ -137,24 +141,19 @@ const FavouriteSites = () => {
     oldUrl: string
   ) => {
     const { cleanedSiteName, cleanedSiteUrl } = dataClean(newTitle, newUrl);
-
     try {
       const { data } = await axios.put(`/api/favourites`, {
         title: cleanedSiteName,
         url: cleanedSiteUrl,
         oldUrl: oldUrl,
       });
-
       toast({
         title: "Favorite Updated",
         description: `"${cleanedSiteName}" has been successfully updated!`,
       });
-
       setFavourites((prevFavourites) =>
         prevFavourites.map((fav) =>
-          fav.url === oldUrl
-            ? { ...fav, title: data.title, url: data.url }
-            : fav
+          fav.url === oldUrl ? { ...fav, title: data.title, url: data.url } : fav
         )
       );
     } catch (error) {
@@ -170,11 +169,9 @@ const FavouriteSites = () => {
   const deleteFavourite = async (url: string) => {
     try {
       await axios.delete(`/api/favourites?url=${url}`);
-
       setFavourites((prevFavourites) =>
         prevFavourites.filter((fav) => fav.url !== url)
       );
-
       toast({
         title: "Favorite Deleted",
         description: "The favorite has been successfully removed.",
@@ -195,13 +192,15 @@ const FavouriteSites = () => {
   };
 
   const totalItems = favourites.length;
-  const totalPages = Math.ceil(
-    (favourites.length < 20 ? totalItems + 1 : totalItems) / itemsPerPage
+  const totalPages = useMemo(
+    () => Math.ceil((totalItems < 20 ? totalItems + 1 : totalItems) / itemsPerPage),
+    [totalItems, itemsPerPage]
   );
 
-  const displayFavourites = favourites.slice(
-    currentPage * itemsPerPage,
-    (currentPage + 1) * itemsPerPage
+  const displayFavourites = useMemo(
+    () =>
+      favourites.slice(currentPage * itemsPerPage, (currentPage + 1) * itemsPerPage),
+    [favourites, currentPage, itemsPerPage]
   );
 
   const shouldDisplayAddFavouriteButton =
@@ -222,14 +221,13 @@ const FavouriteSites = () => {
               className="w-full h-full flex flex-col items-center justify-center"
             >
               <div className="h-12 w-12 flex items-center justify-center rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-sm">
-              <Image
-                src={getFaviconUrl(fav.url)}
-                alt={`${fav.title.charAt(0)}`}
-                width={28}
-                height={28}
-                className="w-7 h-7"
-              />
-
+                <Image
+                  src={getFaviconUrl(fav.url)}
+                  alt={`${fav.title.charAt(0)}`}
+                  width={28}
+                  height={28}
+                  className="w-7 h-7"
+                />
               </div>
               <p className="mt-4 text-xs font-semibold text-black dark:text-white overflow-hidden whitespace-nowrap text-ellipsis w-full text-center">
                 {fav.title}
@@ -249,7 +247,7 @@ const FavouriteSites = () => {
         {shouldDisplayAddFavouriteButton && (
           <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
             <DialogTrigger asChild>
-              <div className="flex flex-col items-center justify-center h-28 w-28 p-4 border-none rounded-lg text-white cursor-pointer hover:bg-black/10 dark:hover:bg-white/10">
+              <div className="flex flex-col items-center justify-center h-28 w-28 p-3 border-none rounded-lg text-white cursor-pointer hover:bg-black/10 dark:hover:bg-white/10">
                 <div className="p-3 rounded-full bg-black/10 dark:bg-white/10 backdrop-blur-sm">
                   <Plus className="w-6 h-6 text-black dark:text-white" />
                 </div>

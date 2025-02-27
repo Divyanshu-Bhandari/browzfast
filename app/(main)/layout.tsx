@@ -1,17 +1,26 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { UserButton } from "@clerk/nextjs";
 import { cn } from "@/lib/utils";
 import { UIProvider } from "@/context/UIContext";
 import { BackgroundImageProvider } from "@/context/BackgroundImageContext";
 
 import { ModeToggle } from "@/components/mode-toggle";
-import { NavigationSidebar } from "@/components/navigation/navigation-sidebar";
 import { Button } from "@/components/ui/button";
 import HomePageContent from "@/components/homepage-content";
 import { Menu } from "lucide-react";
-import TutorialGuide from "@/components/tutorial-guide";
+const TutorialGuide = dynamic(() => import("@/components/tutorial-guide"), {
+  ssr: false,
+});
+const NavigationSidebar = dynamic(
+  () =>
+    import("@/components/navigation/navigation-sidebar").then(
+      (mod) => mod.NavigationSidebar
+    ),
+  { ssr: false }
+);
 
 const HomePageLayout = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -45,7 +54,7 @@ const HomePageLayout = ({ children }: { children: React.ReactNode }) => {
           <div
             className={cn(
               "hidden md:flex fixed inset-y-0 left-0 z-30 flex-col transition-transform duration-300 ease-in-out",
-              isSidebarOpen ? "translate-x-0 w-60" : "-translate-x-full"
+              isSidebarOpen ? "translate-x-0 w-64" : "-translate-x-full"
             )}
           >
             <NavigationSidebar />

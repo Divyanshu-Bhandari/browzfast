@@ -5,9 +5,15 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
-const font = Open_Sans({ subsets: ["latin"] });
+// ✅ Optimize Font Loading
+const font = Open_Sans({ 
+  subsets: ["latin"], 
+  display: "swap",  // Ensures text is visible even before font loads
+  weight: ["400", "700"], // Load only necessary weights
+  preload: true, // Preload to improve LCP
+});
 
 export const metadata: Metadata = {
   title: "BrowzFast",
@@ -33,6 +39,7 @@ export default function RootLayout({
           >
             {children}
             <Toaster />
+            <SpeedInsights />
           </ThemeProvider>
         </body>
       </html>

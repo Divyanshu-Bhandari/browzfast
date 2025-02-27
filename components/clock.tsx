@@ -4,41 +4,36 @@ import { useState, useEffect } from "react";
 import { useUI } from "@/context/UIContext";
 
 const Clock = () => {
-  const [time, setTime] = useState("");
   const { showClock, setShowClock, clockFormat } = useUI();
+
+  // Compute initial time immediately
+  const getFormattedTime = () => {
+    const now = new Date();
+    let hours = now.getHours();
+    const minutes = now.getMinutes().toString().padStart(2, "0");
+    if (clockFormat === "12") {
+      hours = hours % 12 || 12;
+    }
+    return `${hours.toString().padStart(2, "0")}:${minutes}`;
+  };
+
+  const [time, setTime] = useState(getFormattedTime());
 
   useEffect(() => {
     const uiPreferences = JSON.parse(
       localStorage.getItem("uiPreferences") || "{}"
     );
-
-    if (uiPreferences.isClockHidden === true) {
-      setShowClock(false);
-    } else {
-      setShowClock(true);
-    }
+    // Set clock visibility based on stored preferences
+    setShowClock(uiPreferences.isClockHidden !== true);
 
     const updateTime = () => {
-      const now = new Date();
-      let hours = now.getHours();
-      const minutes = now.getMinutes().toString().padStart(2, "0");
-
-      let formattedTime = "";
-
-      if (clockFormat === "12") {
-        hours = hours % 12 || 12;
-      }
-
-      formattedTime = `${hours.toString().padStart(2, "0")}:${minutes}`;
-
-      setTime(formattedTime);
+      setTime(getFormattedTime());
     };
 
     updateTime();
     const timerId = setInterval(updateTime, 60000);
-
     return () => clearInterval(timerId);
-  }, [clockFormat]);
+  }, [clockFormat, setShowClock]);
 
   if (!showClock) return null;
 
