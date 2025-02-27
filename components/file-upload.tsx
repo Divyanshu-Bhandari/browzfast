@@ -52,7 +52,7 @@ export const FileUpload = ({
   };
 
   return (
-    <div className="w-[320px] h-[230px] md:w-[219px] md:h-[140px] border bg-slate-200 dark:bg-[#414040] rounded-md">
+    <div className="w-[320px] h-[190px] md:w-[219px] md:h-[124px] border bg-slate-200 dark:bg-[#414040] rounded-md">
       {!backgroundImage && (
         <div className="w-full h-full flex items-center justify-center">
           <input
@@ -77,6 +77,8 @@ export const FileUpload = ({
           <Image
             src={backgroundImage}
             alt="Uploaded"
+            width={326}
+            height={230}
             className="rounded-md w-full h-full object-cover"
           />
           <button

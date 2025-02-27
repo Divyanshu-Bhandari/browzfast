@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from 'next/dynamic';
 import {
   Album,
   CircleHelp,
@@ -15,7 +16,6 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
-import { AllDialogContent } from "@/components/modals/all-dialog-content";
 import { NavButton } from "./navigation-button";
 import {
   Dialog,
@@ -33,6 +33,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+const AllDialogContent = dynamic(() =>
+  import("@/components/modals/all-dialog-content").then((mod) => mod.AllDialogContent)
+);
 
 export const NavigationAction = () => {
   const [selectedOptionCustomizeHomepage, setSelectedOptionCustomizeHomepage] =
