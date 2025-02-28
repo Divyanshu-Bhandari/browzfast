@@ -1,9 +1,10 @@
+import { initialUser } from "@/lib/initial-user";
+import dynamic from "next/dynamic";
+
 import { MobileToggle } from "@/components/mobile-toggle";
 import Clock from "@/components/clock";
 import SearchBar from "@/components/searchbar";
-import FavouriteSites from "@/components/favourite-sites";
-import { initialUser } from "@/lib/initial-user";
-
+const FavouriteSites = dynamic(() => import("@/components/favourite-sites"), { ssr: false });
 const HomePage = async () => {
   const initializeUser = await initialUser();
   return (

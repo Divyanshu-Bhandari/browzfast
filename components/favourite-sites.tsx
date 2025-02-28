@@ -2,6 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
+import Image from "next/image";
+import { useUI } from "@/context/UIContext";
 
 import { Plus } from "lucide-react";
 import EllipsisMenu from "@/components/ellipsisMenu";
@@ -17,8 +19,6 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { useUI } from "@/context/UIContext";
-import Image from "next/image";
 
 const FavouriteSites = () => {
   const { favourites, setFavourites } = useUI();

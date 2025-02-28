@@ -191,13 +191,30 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
         });
         setDownloadStatus("Download Bookmark File");
       }
-    } catch (error) {
-      console.error("Error downloading bookmark file:", error);
-      toast({
-        title: "Something Went Wrong",
-        description: "An unexpected error occurred. Please try again later.",
-        variant: "destructive",
-      });
+    } catch (error: any) {
+      if (error.response) {
+        if (error.response.status === 404) {
+          toast({
+            title: "File Not Found",
+            description:
+              "No bookmarks file was found. Please upload one first.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Download Failed",
+            description: `Error: ${error.response.status} - ${error.response.statusText}`,
+            variant: "destructive",
+          });
+        }
+      } else {
+        toast({
+          title: "Something Went Wrong",
+          description: "An unexpected error occurred. Please try again later.",
+          variant: "destructive",
+        });
+      }
+
       setDownloadStatus("Download Bookmark File");
     } finally {
       setIsDownloading(false);
@@ -225,12 +242,31 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
       }
 
       setTimeout(() => setDeleteStatus("Delete Bookmark File"), 2000);
-    } catch (error) {
-      toast({
-        title: "Something Went Wrong",
-        description: "An unexpected error occurred. Please try again later.",
-        variant: "destructive",
-      });
+    } catch (error: any) {
+      if (error.response) {
+        // Specific handling for different error status codes
+        if (error.response.status === 404) {
+          toast({
+            title: "Bookmark Not Found",
+            description:
+              "The bookmark file does not exist or has already been deleted.",
+            variant: "destructive",
+          });
+        } else {
+          toast({
+            title: "Delete Failed",
+            description: `Error: ${error.response.status} - ${error.response.statusText}`,
+            variant: "destructive",
+          });
+        }
+      } else {
+        toast({
+          title: "Something Went Wrong",
+          description: "An unexpected error occurred. Please try again later.",
+          variant: "destructive",
+        });
+      }
+
       setDeleteStatus("Delete Bookmark File");
     } finally {
       setIsDeleting(false);
@@ -524,14 +560,13 @@ export const AllDialogContent = ({ selectedOption }: AllDialogContentProps) => {
                       <ChromeStoreButton />
 
                       <div className="flex justify-center">
-                      <Image
-                        src="/how-to-use-images/chrome-d-step-1.png"
-                        alt="chrome-d-step-1"
-                        width={400}
-                        height={300}
-                        className="w-full max-w-sm rounded-md shadow-md mt-2"
-                      />
-
+                        <Image
+                          src="/how-to-use-images/chrome-d-step-1.png"
+                          alt="chrome-d-step-1"
+                          width={400}
+                          height={300}
+                          className="w-full max-w-sm rounded-md shadow-md mt-2"
+                        />
                       </div>
 
                       <p className="text-sm text-gray-600 dark:text-gray-300">
